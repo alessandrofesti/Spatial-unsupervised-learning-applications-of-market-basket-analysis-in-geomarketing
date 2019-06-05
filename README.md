@@ -35,7 +35,7 @@ library(readxl)
 An overview of the iperbole dataset, downloadable here: <http://dati.comune.bologna.it/node/640>
 
 <center>
-<img src="C:\Users\Alessandro\Desktop\OverviewIperboleDataset.jpg" width="90%" />
+<img src="http://github.com/alessandrofesti/SPA/tree/master/Images/0.png" width="90%" />
 </center>
 <br/> The R package 'reticulate' helps us integrating the Python language in the R environment. In the Iperbole dataset there are not latitude and longitude coordinates for the commercial activities in Bologna. We can get them using the geographic information we already have and geocoding it through the Mapbox API's using Python. Then the general analysis is implemented using R. <br/>
 
