@@ -35,7 +35,7 @@ library(readxl)
 An overview of the iperbole dataset, downloadable here: <http://dati.comune.bologna.it/node/640>
 
 <center>
-<img src="![0](Images/0.png)" width="50%" />
+<img src="Images/0.png" width="50%" />
 </center>
 <br/>
 
