@@ -87,7 +87,7 @@ geocoded <- read_excel("C:\\Users\\Alessandro\\Desktop\\geocoded.xlsx")
 geocoded <- dplyr::distinct(geocoded, lat, lon, .keep_all = TRUE)
 ```
 
-<br/> Having obtained thir lat/lon coordinates, the position of the commercial activities in Bologna are plotted using Tableau <br/>
+<br/> Having obtained their lat/lon coordinates, the position of the commercial activities in Bologna are plotted using Tableau <br/>
 <center>
 <img src="Images/1.png" width="100%" />
 </center>
