@@ -44,12 +44,11 @@ An overview of the iperbole dataset, downloadable here: http://dati.comune.bolog
 <center>
 ```{r Iperbole dataset, echo=FALSE, fig.pos="h", out.width="50%", include=TRUE}
 knitr::include_graphics("https://github.com/alessandrofesti/SPA/tree/master/Images/0.png")
-knitr::include_graphics("![0](Images/0.png)")
+knitr::include_graphics("![Immagine](Images/0.png)")
 ```
 </center>
 <br/>
 
-![Immagine](Images/0.png)
 
 The R package 'reticulate' helps us integrating the Python language in the R environment. 
 In the Iperbole dataset there are not latitude and longitude coordinates for the commercial activities in Bologna. We can get them using the geographic information we already have and geocoding it through the Mapbox API's using Python. Then the general analysis is implemented using R.
