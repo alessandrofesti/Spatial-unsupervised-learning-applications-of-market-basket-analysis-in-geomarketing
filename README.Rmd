@@ -42,7 +42,7 @@ library(readxl)
 An overview of the iperbole dataset, downloadable here: http://dati.comune.bologna.it/node/640
 
 <center>
-```{r Iperbole dataset, echo=FALSE, fig.pos="h", out.width="90%", include=TRUE}
+```{r Iperbole dataset, echo=FALSE, fig.pos="h", out.width="50%", include=TRUE}
 knitr::include_graphics("https://github.com/alessandrofesti/SPA/tree/master/Images/0.png")
 ```
 </center>
