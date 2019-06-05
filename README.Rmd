@@ -44,11 +44,12 @@ An overview of the iperbole dataset, downloadable here: http://dati.comune.bolog
 <center>
 ```{r Iperbole dataset, echo=FALSE, fig.pos="h", out.width="50%", include=TRUE}
 knitr::include_graphics("https://github.com/alessandrofesti/SPA/tree/master/Images/0.png")
+knitr::include_graphics("![0](Images/0.png)")
 ```
 </center>
 <br/>
 
-![ww](Images/0.png)
+![0](Images/0.png)
 
 
 The R package 'reticulate' helps us integrating the Python language in the R environment. 
@@ -101,6 +102,10 @@ Having obtained thir lat/lon coordinates, the position of the commercial activit
 ```{r Tableau visualization of the commercial activities in Bologna, echo=FALSE, fig.pos="h", out.width="90%"}
 knitr::include_graphics("C:\\Users\\Alessandro\\Desktop\\MapBologna.png")
 ```
+</center>
+
+<center>
+![0](Images/1.png)
 </center>
 <br/>
 
