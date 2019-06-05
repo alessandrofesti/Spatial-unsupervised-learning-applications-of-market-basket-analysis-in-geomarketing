@@ -49,8 +49,7 @@ knitr::include_graphics("![0](Images/0.png)")
 </center>
 <br/>
 
-![0](Images/0.png)
-
+![Immagine](Images/0.png)
 
 The R package 'reticulate' helps us integrating the Python language in the R environment. 
 In the Iperbole dataset there are not latitude and longitude coordinates for the commercial activities in Bologna. We can get them using the geographic information we already have and geocoding it through the Mapbox API's using Python. Then the general analysis is implemented using R.
