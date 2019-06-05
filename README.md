@@ -137,7 +137,9 @@ head(path_vis,10)
 
 <br/>
 Plotting two simulated paths for two different simulated individuals 
-<center><img src="Images/6.jpg" width="60%" /></center>
+<p align="center">
+    <center><img src="Images/6.jpg" width="60%" /></center>
+</p>
 
 <br/> Then, in order to infer if a person was at a certain activity, the individual positions are matched with the positions of the geocoded commercial activities in Bologna on the basis of an arbitrary minimum distance(Euclidean distance).
 
