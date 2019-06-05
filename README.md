@@ -89,7 +89,7 @@ geocoded <- dplyr::distinct(geocoded, lat, lon, .keep_all = TRUE)
 
 <br/> Having obtained thir lat/lon coordinates, the position of the commercial activities in Bologna are plotted using Tableau <br/>
 <center>
-<img src="![0](Images/1.png)" width="90%" />
+<img src="Images/1.png" width="90%" />
 </center>
 <br/>
 
@@ -342,7 +342,7 @@ itemFrequencyPlot(tr_cat,topN=10,type="relative",col=brewer.pal(8,'Pastel2'), ma
 ![](README_files/figure-markdown_github/unnamed-chunk-11-1.png) <br/> The positions of the commercial activities in Bologna are then plotted using Tableau according to their sector.
 
 <center>
-<img src="![0](Images/2.png)" width="90%" />
+<img src="Images/2.png" width="90%" />
 </center>
 <br/> Performing the Market Basket Analysis through the apriori algorithm on the sector
 
