@@ -43,8 +43,7 @@ An overview of the iperbole dataset, downloadable here: http://dati.comune.bolog
 
 <center>
 ```{r Iperbole dataset, echo=FALSE, fig.pos="h", out.width="90%", include=TRUE}
-# knitr::include_graphics("C:\\Users\\Alessandro\\Desktop\\OverviewIperboleDataset.jpg")
-![Image](Images/0.jpg)
+knitr::include_graphics("https://github.com/alessandrofesti/SPA/tree/master/Images/0.png")
 ```
 </center>
 <br/>
