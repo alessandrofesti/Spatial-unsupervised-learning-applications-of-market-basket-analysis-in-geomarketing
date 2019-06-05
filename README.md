@@ -136,13 +136,13 @@ head(path_vis,10)
     ## 10 11.34703 44.49575    1   1
 
 Plotting the position of an individual on a path
-<img src="Images/4.jpg" width="90%" />
+<center><img src="Images/4.jpg" width="50%" /></certer>
 
 Plotting the position of an individual on a path
-<img src="Images/5.jpg" width="90%" />
+<img src="Images/5.jpg" width="50%" />
 
 Plotting the position of an individual on a path
-<img src="Images/6.jpg" width="90%" />
+<img src="Images/6.jpg" width="50%" />
 
 <br/> Then, in order to infer if a person was at a certain activity, the individual positions are matched with the positions of the geocoded commercial activities in Bologna on the basis of an arbitrary minimum distance(Euclidean distance).
 
