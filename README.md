@@ -136,8 +136,8 @@ head(path_vis,10)
     ## 10 11.34703 44.49575    1   1
 
 <br/>
-Plotting the position of an individual on a path
-<center><img src="Images/6.jpg" width="50%" /></certer>
+Plotting two simulated paths for two different simulated individuals 
+<center><img src="Images/6.jpg" width="60%" /></center>
 
 <br/> Then, in order to infer if a person was at a certain activity, the individual positions are matched with the positions of the geocoded commercial activities in Bologna on the basis of an arbitrary minimum distance(Euclidean distance).
 
