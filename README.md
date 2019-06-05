@@ -35,8 +35,9 @@ library(readxl)
 An overview of the iperbole dataset, downloadable here: <http://dati.comune.bologna.it/node/640>
 
 <center>
+<img src="![0](Images/0.png)" width="50%" />
 </center>
-![0](Images/0.png) <br/>
+<br/>
 
 The R package 'reticulate' helps us integrating the Python language in the R environment. In the Iperbole dataset there are not latitude and longitude coordinates for the commercial activities in Bologna. We can get them using the geographic information we already have and geocoding it through the Mapbox API's using Python. Then the general analysis is implemented using R. <br/>
 
@@ -88,9 +89,7 @@ geocoded <- dplyr::distinct(geocoded, lat, lon, .keep_all = TRUE)
 
 <br/> Having obtained thir lat/lon coordinates, the position of the commercial activities in Bologna are plotted using Tableau <br/>
 <center>
-</center>
-<center>
-![0](Images/1.png)
+<img src="![0](Images/1.png)" width="90%" />
 </center>
 <br/>
 
@@ -125,16 +124,16 @@ head(path_vis,10)
 ```
 
     ##         lon      lat path ind
-    ## 1  11.35349 44.49532    1   1
-    ## 2  11.34565 44.48749    1   1
-    ## 3  11.34353 44.48536    1   1
-    ## 4  11.34690 44.48873    1   1
-    ## 5  11.34272 44.48455    1   1
-    ## 6  11.35194 44.49377    1   1
-    ## 7  11.34790 44.48973    1   1
-    ## 8  11.34061 44.48245    1   1
-    ## 9  11.34571 44.48754    1   1
-    ## 10 11.34886 44.49069    1   1
+    ## 1  11.33935 44.48807    1   1
+    ## 2  11.34665 44.49537    1   1
+    ## 3  11.34178 44.49050    1   1
+    ## 4  11.34416 44.49288    1   1
+    ## 5  11.34058 44.48930    1   1
+    ## 6  11.34291 44.49163    1   1
+    ## 7  11.33797 44.48669    1   1
+    ## 8  11.34604 44.49476    1   1
+    ## 9  11.34352 44.49224    1   1
+    ## 10 11.34703 44.49575    1   1
 
 <br/> Then, in order to infer if a person was at a certain activity, the individual positions are matched with the positions of the geocoded commercial activities in Bologna on the basis of an arbitrary minimum distance(Euclidean distance).
 
@@ -171,12 +170,12 @@ head(result)
 ```
 
     ##        lon      lat         dist path ind
-    ## 1 11.35381 44.49555 3.918118e-04    1   1
-    ## 2       NA       NA 5.935997e-04    1   1
-    ## 3       NA       NA 2.241884e-03    1   1
-    ## 4       NA       NA 6.356600e-04    1   1
-    ## 5       NA       NA 3.329103e-03    1   1
-    ## 6 11.35191 44.49382 5.586108e-05    1   1
+    ## 1       NA       NA 0.0016879663    1   1
+    ## 2 11.34673 44.49548 0.0001317442    1   1
+    ## 3       NA       NA 0.0005721107    1   1
+    ## 4 11.34417 44.49312 0.0002404279    1   1
+    ## 5       NA       NA 0.0006089587    1   1
+    ## 6 11.34299 44.49179 0.0001758203    1   1
 
 <font size = '2'> Adjusting the dataset for the association rules discovery eliminating the non-matched observations </font>
 
@@ -185,13 +184,13 @@ result <- na.omit(result)
 head(result)
 ```
 
-    ##         lon      lat         dist path ind
-    ## 1  11.35381 44.49555 3.918118e-04    1   1
-    ## 6  11.35191 44.49382 5.586108e-05    1   1
-    ## 11 11.34732 44.48925 3.375501e-04    1   1
-    ## 14 11.35097 44.49251 4.641712e-04    1   1
-    ## 15 11.35097 44.49251 4.544435e-04    1   1
-    ## 21 11.34480 44.48720 4.013597e-04    2   1
+    ##        lon      lat         dist path ind
+    ## 2 11.34673 44.49548 0.0001317442    1   1
+    ## 4 11.34417 44.49312 0.0002404279    1   1
+    ## 6 11.34299 44.49179 0.0001758203    1   1
+    ## 7 11.33821 44.48682 0.0002777571    1   1
+    ## 8 11.34556 44.49484 0.0004844213    1   1
+    ## 9 11.34343 44.49244 0.0002176756    1   1
 
 Merging process to retrieve the index of the matched company
 
@@ -204,16 +203,16 @@ head(final,10)
 ```
 
     ##         lon      lat   ID         dist path ind itemset_id
-    ## 1  11.32825 44.49041 6872 0.0004577361    4  31       31 4
-    ## 2  11.32834 44.48821 3561 0.0004020383    6  28       28 6
-    ## 3  11.32834 44.48821 3561 0.0003613516    5  28       28 5
-    ## 4  11.32834 44.48821 3561 0.0003853404    4  28       28 4
-    ## 5  11.32834 44.48821 3561 0.0003648597   15  28      28 15
-    ## 6  11.32834 44.48821 3561 0.0001833690    2   3        3 2
-    ## 7  11.32834 44.48821 3561 0.0004016086    5  28       28 5
-    ## 8  11.32834 44.48821 3561 0.0003653974    3  28       28 3
-    ## 9  11.32834 44.48821 3561 0.0004414480    8  28       28 8
-    ## 10 11.32834 44.48821 3561 0.0004571947    4  28       28 4
+    ## 1  11.32834 44.48821 3561 3.247483e-04   11  20      20 11
+    ## 2  11.32993 44.49048 2325 1.989156e-04   12  20      20 12
+    ## 3  11.32993 44.49048 2325 3.135245e-04   11  20      20 11
+    ## 4  11.33014 44.49086 2485 3.243349e-04    5  20       20 5
+    ## 5  11.33070 44.49076 3122 2.503902e-04    9  20       20 9
+    ## 6  11.33070 44.49076 3122 3.531150e-04   10  20      20 10
+    ## 7  11.33070 44.49076 3122 2.107254e-04   10  20      20 10
+    ## 8  11.33080 44.49036 6078 3.903161e-04    6  32       32 6
+    ## 9  11.33080 44.49036 6078 2.281117e-04   12  39      39 12
+    ## 10 11.33089 44.49056 6065 8.375626e-05    9  32       32 9
 
 Then one needs to transform the data into a transaction dataset
 
@@ -258,11 +257,11 @@ association.rules <- arules::apriori(tr, parameter = list(supp=0.01, conf=0.3,ma
     ## Absolute minimum support count: 7 
     ## 
     ## set item appearances ...[0 item(s)] done [0.00s].
-    ## set transactions ...[2057 item(s), 750 transaction(s)] done [0.00s].
-    ## sorting and recoding items ... [279 item(s)] done [0.00s].
+    ## set transactions ...[2040 item(s), 751 transaction(s)] done [0.01s].
+    ## sorting and recoding items ... [283 item(s)] done [0.00s].
     ## creating transaction tree ... done [0.00s].
     ## checking subsets of size 1 2 3 4 5 done [0.00s].
-    ## writing ... [2047 rule(s)] done [0.00s].
+    ## writing ... [1744 rule(s)] done [0.00s].
     ## creating S4 object  ... done [0.00s].
 
 ``` r
@@ -270,16 +269,16 @@ inspect(association.rules[1:10])
 ```
 
     ##      lhs       rhs    support    confidence lift     count
-    ## [1]  {1409} => {1649} 0.01066667 0.8888889  51.28205  8   
-    ## [2]  {1649} => {1409} 0.01066667 0.6153846  51.28205  8   
-    ## [3]  {6738} => {1776} 0.01066667 0.8000000  54.54545  8   
-    ## [4]  {1776} => {6738} 0.01066667 0.7272727  54.54545  8   
-    ## [5]  {6738} => {1649} 0.01200000 0.9000000  51.92308  9   
-    ## [6]  {1649} => {6738} 0.01200000 0.6923077  51.92308  9   
-    ## [7]  {1776} => {1649} 0.01333333 0.9090909  52.44755 10   
-    ## [8]  {1649} => {1776} 0.01333333 0.7692308  52.44755 10   
-    ## [9]  {1184} => {1533} 0.01066667 1.0000000  25.86207  8   
-    ## [10] {5462} => {3209} 0.01066667 1.0000000  41.66667  8
+    ## [1]  {1722} => {1966} 0.01198402 0.8181818  51.20455 9    
+    ## [2]  {1966} => {1722} 0.01198402 0.7500000  51.20455 9    
+    ## [3]  {2130} => {2341} 0.01065246 0.7272727  49.65289 8    
+    ## [4]  {2341} => {2130} 0.01065246 0.7272727  49.65289 8    
+    ## [5]  {1344} => {1695} 0.01198402 1.0000000  50.06667 9    
+    ## [6]  {1695} => {1344} 0.01198402 0.6000000  50.06667 9    
+    ## [7]  {2843} => {2681} 0.01065246 0.8888889  19.07302 8    
+    ## [8]  {3016} => {2518} 0.01065246 0.8000000  23.10769 8    
+    ## [9]  {2518} => {3016} 0.01065246 0.3076923  23.10769 8    
+    ## [10] {2715} => {2834} 0.01065246 0.7272727  13.32151 8
 
 ``` r
 plot(association.rules, method = "two-key plot")
@@ -313,20 +312,20 @@ final_cat <- na.omit(final_cat)
 head(final_cat)
 ```
 
-    ##         lon      lat                     Commercial type         dist path
-    ## 15 11.32918 44.49045 Tabacco e altri generi di monopolio 0.0003147564    6
-    ## 16 11.32918 44.49045 Tabacco e altri generi di monopolio 0.0003730165    9
-    ## 17 11.32918 44.49045 Tabacco e altri generi di monopolio 0.0004194769   14
-    ## 18 11.32918 44.49045 Tabacco e altri generi di monopolio 0.0001991561    6
-    ## 19 11.32978 44.49097 Articoli per l'igiene della persona 0.0001661084    5
-    ## 20 11.32978 44.49097 Articoli per l'igiene della persona 0.0003595585    3
-    ##    ind itemset_id
-    ## 15  31       31 6
-    ## 16  31       31 9
-    ## 17  31      31 14
-    ## 18  29       29 6
-    ## 19  29       29 5
-    ## 20  31       31 3
+    ##        lon      lat         Commercial type         dist path ind
+    ## 4 11.33014 44.49086            Oggettistica 0.0003243349    5  20
+    ## 5 11.33070 44.49076 Alimentari confezionati 0.0002503902    9  20
+    ## 6 11.33070 44.49076 Alimentari confezionati 0.0003531150   10  20
+    ## 7 11.33070 44.49076 Alimentari confezionati 0.0002107254   10  20
+    ## 8 11.33080 44.49036   Gastronomia Salumeria 0.0003903161    6  32
+    ## 9 11.33080 44.49036   Gastronomia Salumeria 0.0002281117   12  39
+    ##   itemset_id
+    ## 4       20 5
+    ## 5       20 9
+    ## 6      20 10
+    ## 7      20 10
+    ## 8       32 6
+    ## 9      39 12
 
 ``` r
 transactionData_cat <- ddply(final_cat,c("itemset_id"),
@@ -343,9 +342,8 @@ itemFrequencyPlot(tr_cat,topN=10,type="relative",col=brewer.pal(8,'Pastel2'), ma
 ![](README_files/figure-markdown_github/unnamed-chunk-11-1.png) <br/> The positions of the commercial activities in Bologna are then plotted using Tableau according to their sector.
 
 <center>
+<img src="![0](Images/2.png)" width="90%" />
 </center>
-![0](Images/2.png)
-
 <br/> Performing the Market Basket Analysis through the apriori algorithm on the sector
 
 ``` r
@@ -364,26 +362,26 @@ association.rules_cat <- arules::apriori(tr_cat, parameter = list(supp=0.03, con
     ##  filter tree heap memopt load sort verbose
     ##     0.1 TRUE TRUE  FALSE TRUE    2    TRUE
     ## 
-    ## Absolute minimum support count: 22 
+    ## Absolute minimum support count: 21 
     ## 
     ## set item appearances ...[0 item(s)] done [0.00s].
-    ## set transactions ...[1656 item(s), 737 transaction(s)] done [0.00s].
-    ## sorting and recoding items ... [29 item(s)] done [0.00s].
+    ## set transactions ...[1607 item(s), 733 transaction(s)] done [0.00s].
+    ## sorting and recoding items ... [39 item(s)] done [0.00s].
     ## creating transaction tree ... done [0.00s].
     ## checking subsets of size 1 2 3 done [0.00s].
-    ## writing ... [12 rule(s)] done [0.00s].
+    ## writing ... [9 rule(s)] done [0.00s].
     ## creating S4 object  ... done [0.00s].
 
 ``` r
 inspect(association.rules_cat[1:5])
 ```
 
-    ##     lhs                            rhs                            support confidence     lift count
-    ## [1] {Profumeria}                => {Abbigliamento e accessori} 0.04070556  0.7500000 1.738208    30
-    ## [2] {Strumenti musicali dischi} => {Abbigliamento e accessori} 0.03527815  0.5909091 1.369497    26
-    ## [3] {Mobili}                    => {Oggetti preziosi}          0.04206242  0.5438596 3.485431    31
-    ## [4] {Mobili}                    => {Abbigliamento e accessori} 0.04206242  0.5438596 1.260455    31
-    ## [5] {Libri}                     => {Abbigliamento e accessori} 0.04477612  0.5000000 1.158805    33
+    ##     lhs                                rhs                            support confidence     lift count
+    ## [1] {Orologi da polso}              => {Abbigliamento e accessori} 0.03274216  0.9230769 2.469399    24
+    ## [2] {mobili}                        => {Abbigliamento}             0.03001364  0.5945946 2.157613    22
+    ## [3] {Integratori alimentari}        => {Cartoleria}                0.04638472  0.7234043 3.734192    34
+    ## [4] {Ferramenta}                    => {Cartoleria}                0.04638472  0.6071429 3.134054    34
+    ## [5] {Materiale hardware e software} => {Abbigliamento e accessori} 0.04092769  0.5172414 1.383715    30
 
 ``` r
 plot(association.rules_cat, method = "graph")
