@@ -135,13 +135,6 @@ head(path_vis,10)
     ## 9  11.34352 44.49224    1   1
     ## 10 11.34703 44.49575    1   1
 
-Plotting the position of an individual on a path
-<center><img src="Images/4.jpg" width="50%" /></certer>
-
-<br/>
-Plotting the position of an individual on a path
-<center><img src="Images/5.jpg" width="50%" /></certer>
-
 <br/>
 Plotting the position of an individual on a path
 <center><img src="Images/6.jpg" width="50%" /></certer>
