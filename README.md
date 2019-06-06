@@ -349,6 +349,7 @@ itemFrequencyPlot(tr_cat,topN=10,type="relative",col=brewer.pal(8,'Pastel2'), ma
 <img src="Images/2.png" width="100%" />
 </center>
 <br/> Performing the Market Basket Analysis through the apriori algorithm on the sector
+<br/>
 
 ``` r
 association.rules_cat <- arules::apriori(tr_cat, parameter = list(supp=0.03, conf=0.5,maxlen=5))
