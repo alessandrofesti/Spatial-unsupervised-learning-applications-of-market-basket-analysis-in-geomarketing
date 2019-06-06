@@ -376,6 +376,7 @@ association.rules_cat <- arules::apriori(tr_cat, parameter = list(supp=0.03, con
     ## writing ... [9 rule(s)] done [0.00s].
     ## creating S4 object  ... done [0.00s].
 
+Discovered rules associating commercial sectors
 ``` r
 inspect(association.rules_cat[1:5])
 ```
