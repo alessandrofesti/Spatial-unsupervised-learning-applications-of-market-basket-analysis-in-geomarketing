@@ -1,5 +1,5 @@
 ---
-title: "Spatial Association Rules For Geomarketing Purposes"
+title: "Spatial Association Rules ror Geomarketing Purposes"
 author: "Alessandro Festi"
 date: "04 giugno 2019"
 output: rmarkdown::github_document
