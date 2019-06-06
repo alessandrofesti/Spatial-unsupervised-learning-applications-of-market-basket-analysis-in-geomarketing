@@ -228,7 +228,7 @@ transactionData <- ddply(final,c("itemset_id"),
 ```
 
 The dataset is read again into R as a transaction object. The most frequent visited companies are displayed in the absolute frequency plot below
-
+<br/>
 ``` r
 write.csv(transactionData,"C:\\Users\\Alessandro\\Desktop\\transaction_data.csv", quote = FALSE, row.names = TRUE)
 tr <- read.transactions('C:\\Users\\Alessandro\\Desktop\\transaction_data.csv', format = 'basket', sep=',')
