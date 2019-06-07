@@ -62,7 +62,7 @@ dataset['quartiere_settore'] = dataset.ESERCIZIO_VIA+'  '+dataset.ESERCIZIO_CIVI
 dataset['lat'] = float
 dataset['lon'] = float
 
-token = token
+token = mytoken
 geocoder = Geocoder(access_token=token)
 
 for i in range(len(dataset)):
