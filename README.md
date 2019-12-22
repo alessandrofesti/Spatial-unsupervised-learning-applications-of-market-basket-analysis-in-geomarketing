@@ -1,4 +1,4 @@
-Spatial Association Rules For Geomarketing Purposes
+Spatial Association Rules for geomarketing purposes
 ================
 Alessandro Festi
 04 giugno 2019
