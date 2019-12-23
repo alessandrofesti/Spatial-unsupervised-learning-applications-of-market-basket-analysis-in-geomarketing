@@ -9,6 +9,7 @@ Alessandro Festi
 The individual movements in the city of Bologna are simulated. For the comprehensive analysis read my chapter in the book... published by...</font>
 
 ``` r
+# Import R packages
 library(geosphere)
 library(shiny)
 library(leaflet)
@@ -42,7 +43,7 @@ use_python('/usr/bin/python3.8')
 
 
 ``` python
-# Import packages
+# Import Python packages
 import os
 import pandas as pd
 import numpy as np 
