@@ -10,7 +10,6 @@ The individual movements in the city of Bologna are simulated. For the comprehen
 
 ``` r
 library(geosphere)
-library(rgeos)
 library(shiny)
 library(leaflet)
 library(plyr) 
@@ -19,11 +18,8 @@ library(jsonlite)
 library(arules)
 library(MASS)
 library(sp)
-library(taRifx)
 library(arulesViz)
 library(readr)
-library(tidyr)
-library(raster)
 library(ggplot2)
 library(RColorBrewer)
 library(readr)
@@ -41,47 +37,46 @@ The R package 'reticulate' helps us integrating the Python language in the R env
 
 ``` r
 library(reticulate)
+use_python('/usr/bin/python3.8')
 ```
 
-    ## Warning: package 'reticulate' was built under R version 3.4.4
-
-``` r
-use_python('C:\\Users\\afesti\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Python 3.6')
-```
 
 ``` python
+import os
 import pandas as pd
 import numpy as np 
 from mapbox import Geocoder
 import json
 
-dataset = pd.read_csv("C:\\Users\\Alessandro\\elenco_esercizicommerciosedefissa_anno_2017.csv", sep = ';', header='infer', encoding='latin-1')
-
+os.chdir('/home/fester/Scrivania/Thesis:Routledge')
+dataset = pd.read_csv("elenco_esercizi_commercio_in_sede_fissa_anno_2018.csv", sep = ';', header='infer', encoding='latin-1')
 dataset['quartiere_settore'] = dataset.ESERCIZIO_VIA+'  '+dataset.ESERCIZIO_CIVICO+' '+dataset.QUARTIERE+' Bologna'
-
 dataset['lat'] = float
 dataset['lon'] = float
-
-token = mytoken
+token = yourtoken
 geocoder = Geocoder(access_token=token)
 
-for i in range(len(dataset)):
-    try:
-        response = geocoder.forward(dataset.quartiere_settore[i])
-        ale = response.content
-        d = json.loads(ale)
-        coordinates = d["features"][0]['geometry']['coordinates']
-        dataset.iat[i,29] = coordinates[1]
-        dataset.iat[i,30] = coordinates[0]
-    except:
-        dataset.iat[i,29] = np.nan
-        dataset.iat[i,30] = np.nan
-
-dataset.to_excel('geocoded.xlsx')
+def mapbox_geocode(dataset):
+  for i in range(len(dataset)):
+      try:
+          response = geocoder.forward(dataset.quartiere_settore[i])
+          ale = response.content
+          d = json.loads(ale)
+          coordinates = d["features"][0]['geometry']['coordinates']
+          dataset.iat[i,29] = coordinates[1]
+          dataset.iat[i,30] = coordinates[0]
+      except:
+          dataset.iat[i,29] = np.nan
+          dataset.iat[i,30] = np.nan
+  return(dataset)
+    
+geocoded_dataset = mapbox_geocode(dataset)
+# write_csv2(geocoded, 'geocoded.csv')
 ```
 
 ``` r
-geocoded <- read_excel("C:\\Users\\Alessandro\\Desktop\\geocoded.xlsx")
+setwd("...")
+geocoded <- read_csv("geocoded.csv")
 geocoded <- dplyr::distinct(geocoded, lat, lon, .keep_all = TRUE)
 ```
 
@@ -94,13 +89,14 @@ geocoded <- dplyr::distinct(geocoded, lat, lon, .keep_all = TRUE)
 Then the individual paths are simulated. In this case the number of simulated individuals is set to 50, each of them on 15 different occasions, geocoded 20 different times for each occasion. <br/>
 
 ``` r
-n_individuals <- 50
-n_paths <- 15
-n_positions <- 20
-
-points <- data.matrix(cbind(rnorm(n_individuals)/250 + 11.342220, rnorm(n_individuals)/250 + 44.493674)) 
+# Setting parameters
+n_individuals <- 200
+n_paths <- 50
+n_positions <- 50
+points <- data.matrix(cbind(rnorm(n_individuals)/200 + 11.342220, rnorm(n_individuals)/200 + 44.493674)) 
 correlation <- 0.7
 
+# Defining path-generator function
 paths_gen <- function(points) {
   paths_one <- c()
     for (j in 1:nrow(points)) {  
@@ -147,6 +143,7 @@ places <- cbind(geocoded$lon, geocoded$lat)
 places[is.na(places)] <- 0
 min_dist <- 0.0005
 
+# Defining function to assign individual positions to geocoded commercial activities
 assign <- function(geo_points) {
   geo_pointsTOplaces <- list()
     for(j in 1:nrow(path_v)) {
