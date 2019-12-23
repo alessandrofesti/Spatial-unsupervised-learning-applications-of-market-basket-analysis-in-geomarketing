@@ -10,7 +10,7 @@ import numpy as np
 from mapbox import Geocoder
 import json
 
-os.chdir('/home/fester/Scrivania/Thesis:Routledge')
+os.chdir('...')
 dataset = pd.read_csv("elenco_esercizi_commercio_in_sede_fissa_anno_2018.csv", sep = ';', header='infer', encoding='latin-1')
 dataset.head()
 
