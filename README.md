@@ -64,9 +64,9 @@ def mapbox_geocode(dataset):
   for i in range(len(dataset)):
       try:
           response = geocoder.forward(dataset.quartiere_settore[i])
-          ale = response.content
-          d = json.loads(ale)
-          coordinates = d["features"][0]['geometry']['coordinates']
+          response = response.content
+          response = json.loads(response)
+          coordinates = response["features"][0]['geometry']['coordinates']
           dataset.iat[i,29] = coordinates[1]
           dataset.iat[i,30] = coordinates[0]
       except:
