@@ -42,13 +42,15 @@ use_python('/usr/bin/python3.8')
 
 
 ``` python
+# Import packages
 import os
 import pandas as pd
 import numpy as np 
 from mapbox import Geocoder
 import json
 
-os.chdir('/home/fester/Scrivania/Thesis:Routledge')
+# Read data, define token
+os.chdir('...')
 dataset = pd.read_csv("elenco_esercizi_commercio_in_sede_fissa_anno_2018.csv", sep = ';', header='infer', encoding='latin-1')
 dataset['quartiere_settore'] = dataset.ESERCIZIO_VIA+'  '+dataset.ESERCIZIO_CIVICO+' '+dataset.QUARTIERE+' Bologna'
 dataset['lat'] = float
@@ -56,6 +58,7 @@ dataset['lon'] = float
 token = yourtoken
 geocoder = Geocoder(access_token=token)
 
+# Define function to geocode commercial activities through mapbox apis
 def mapbox_geocode(dataset):
   for i in range(len(dataset)):
       try:
