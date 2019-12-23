@@ -200,6 +200,7 @@ head(result)
 Merging process to retrieve the index of the matched company
 
 ``` r
+names(geocoded)[1] <- "IND"
 index <- dplyr::select(geocoded,lat,lon, IND)
 index <- plyr::rename(index, c("lat" = "lat", "lon" = "lon", "IND" = "ID"))
 final <- merge(x=index, y=result, by.x = c("lon","lat"), by.y = c("lon","lat"))
