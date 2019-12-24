@@ -96,7 +96,7 @@ Then the individual paths are simulated. In this case the number of simulated in
 # Setting parameters
 n_individuals <- 200
 n_paths <- 50
-n_positions <- 50
+n_locations <- 50
 points <- data.matrix(cbind(rnorm(n_individuals)/200 + 11.342220, rnorm(n_individuals)/200 + 44.493674)) 
 correlation <- 0.7
 
@@ -105,9 +105,9 @@ paths_gen <- function(points) {
   paths_one <- c()
     for (j in 1:nrow(points)) {  
        for (i in 1:n_paths) {           
-         mu <- rep(0,n_positions) 
-         Sigma <- matrix(correlation, nrow=n_positions, ncol=n_positions) + diag(n_positions)*.3
-         rawvars <- mvrnorm(n=n_positions, mu=mu, Sigma=Sigma) 
+         mu <- rep(0,n_locations) 
+         Sigma <- matrix(correlation, nrow=n_locations, ncol=n_locations) + diag(n_locations)*.3
+         rawvars <- mvrnorm(n=n_locations, mu=mu, Sigma=Sigma) 
          geo_points <- as.data.frame(cbind(rawvars[,i]/250 + as.double(points[j]), rawvars[,i]/250 + as.double(points[j+nrow(points)])))
          gg <- cbind(geo_points, i, j)
          paths_one <- rbind(paths_one, gg)
