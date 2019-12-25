@@ -153,13 +153,13 @@ assign <- function(geo_points) {
     for(j in 1:nrow(path_v)) {
         x <- spDistsN1(places,path_v[j,], longlat = FALSE)
         x <- as.data.frame(x)
-        qq <- which(x == min(x), arr.ind = TRUE)
-        qq <- as.data.frame(qq) 
+        dist <- which(x == min(x), arr.ind = TRUE)
+        dist <- as.data.frame(qq) 
         nearest <- sort(x[x>0],decreasing=F)[1]
         geo_pointsTOplaces$distance[j] <- nearest
         if (nearest < min_dist) { 
-          geo_pointsTOplaces$lon[j] <- places[qq[1,1],1]
-          geo_pointsTOplaces$lat[j] <- places[qq[1,1],2]
+          geo_pointsTOplaces$lon[j] <- places[dist[1,1],1]
+          geo_pointsTOplaces$lat[j] <- places[dist[1,1],2]
         } else {
           geo_pointsTOplaces$lon[j] <- NA
           geo_pointsTOplaces$lat[j] <- NA 
