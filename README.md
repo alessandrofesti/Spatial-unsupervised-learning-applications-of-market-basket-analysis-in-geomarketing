@@ -1,4 +1,4 @@
-Spatial Association Rules for geomarketing purposes
+Spatial unsupervised learning – applications of market basket analysis in geomarketing
 ================
 Alessandro Festi
 04 giugno 2019
