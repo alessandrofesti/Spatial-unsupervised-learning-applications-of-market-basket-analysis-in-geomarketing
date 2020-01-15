@@ -1,4 +1,4 @@
-# Alessandro Festi, Spatial Association Rules for geomarketing purposes
+## Alessandro Festi, Spatial Association Rules for geomarketing purposes
 
 # Import packages
 library(geosphere)
@@ -20,9 +20,10 @@ library(reticulate)
 use_python('/usr/bin/python3.8')
 
 
-################ Python ################  
+# Python   
 # ```{python getting Latitude/longitude through the Mapbox APIs, echo=TRUE}
 # 
+#
 # import os
 # import pandas as pd
 # import numpy as np 
