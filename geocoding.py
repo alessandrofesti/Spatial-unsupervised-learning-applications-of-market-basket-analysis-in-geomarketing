@@ -7,12 +7,12 @@ import numpy as np
 from mapbox import Geocoder
 import json
 
-os.chdir('...')
 dataset = pd.read_csv("elenco_esercizi_commercio_in_sede_fissa_anno_2018.csv", sep = ';', header='infer', encoding='latin-1')
 
 dataset['quartiere_settore'] = dataset.ESERCIZIO_VIA+'  '+dataset.ESERCIZIO_CIVICO+' '+dataset.QUARTIERE+' Bologna'
 dataset['lat'] = float
 dataset['lon'] = float
+
 token = yourtoken
 geocoder = Geocoder(access_token=token)
 
