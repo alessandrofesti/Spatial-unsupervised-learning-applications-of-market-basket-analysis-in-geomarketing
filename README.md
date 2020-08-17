@@ -6,7 +6,7 @@ Alessandro Festi
 <br/>
 
 <font size = '2'> Market basket analysis is a widely employed technique in marketing which provides suggestions of products to buy to a customer, given the past purchases made by the customers, basing upon the statistical methodology of association rules. This technique has been initially conceived to analyse transactions of products where the dataset is composed of sets of items purchased in different periods of time by N individuals, for instance formed from a large number of receipts collected in a point of sale of a large-scale retail trade. This chapter extends the application of market basket analysis to the geolocation points of N people in a specific space in order to discover associations among places that individuals have visited. When dealing with products, the goal is to link products while here it is linking locations. Similarly, one needs the sets of geolocation points for each individual considered in many different occasions. <br/> 
-The individual movements in the city of Bologna are simulated. For the comprehensive analysis read my chapter in the book... </font>
+The individual movements in the city of Bologna are simulated. For the comprehensive analysis read ... </font>
 
 ``` r
 # Import R packages
