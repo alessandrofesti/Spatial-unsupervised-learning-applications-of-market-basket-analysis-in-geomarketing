@@ -97,7 +97,9 @@ Then the individual paths are simulated. In this case the number of simulated in
 n_individuals <- 200
 n_paths <- 50
 n_locations <- 50
-points <- data.matrix(cbind(rnorm(n_individuals)/200 + 11.342220, rnorm(n_individuals)/200 + 44.493674)) 
+bologna_latitude <- 44.493674
+bologna_longitude <- 11.342220
+points <- data.matrix(cbind(rnorm(n_individuals)/200 + bologna_longitude, rnorm(n_individuals)/200 + bologna_latitude)) 
 correlation <- 0.7
 
 # Defining path-generator function
