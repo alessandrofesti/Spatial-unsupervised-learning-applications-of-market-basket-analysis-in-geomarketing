@@ -17,8 +17,10 @@ library(RColorBrewer)
 library(readr)
 library(readxl)
 library(reticulate)
+
 use_python('/usr/bin/python3.8')
 
+################ Python ################  
 
 # Python   
 # ```{python getting Latitude/longitude through the Mapbox APIs, echo=TRUE}
@@ -30,32 +32,35 @@ use_python('/usr/bin/python3.8')
 # from mapbox import Geocoder
 # import json
 # 
-# os.chdir('/home/fester/Scrivania/Thesis:Routledge')
+# os.chdir('/home/fester/Scrivania')
 # dataset = pd.read_csv("elenco_esercizi_commercio_in_sede_fissa_anno_2018.csv", sep = ';', header='infer', encoding='latin-1')
 # dataset['quartiere_settore'] = dataset.ESERCIZIO_VIA+'  '+dataset.ESERCIZIO_CIVICO+' '+dataset.QUARTIERE+' Bologna'
 # dataset['lat'] = float
 # dataset['lon'] = float
-# token = 'pk.eyJ1IjoiZmVzdGVybml1ayIsImEiOiJjazRneDlhdXgwNzJxM2VudGY3OTVnZThoIn0.Tm8aCQ1FtapC6NEOog_3vA'
+# token = yourtoken
 # geocoder = Geocoder(access_token=token)
 # 
 # def mapbox_geocode(dataset):
 #   for i in range(len(dataset)):
-#   try:
-#   response = geocoder.forward(dataset.quartiere_settore[i])
-# ale = response.content
-# d = json.loads(ale)
-# coordinates = d["features"][0]['geometry']['coordinates']
-# dataset.iat[i,29] = coordinates[1]
-# dataset.iat[i,30] = coordinates[0]
-# except:
-#   dataset.iat[i,29] = np.nan
-# dataset.iat[i,30] = np.nan
+#     try:
+#       response = geocoder.forward(dataset.quartiere_settore[i])
+#       ale = response.content
+#       d = json.loads(ale)
+#       coordinates = d["features"][0]['geometry']['coordinates']
+#       dataset.iat[i,29] = coordinates[1]
+#       dataset.iat[i,30] = coordinates[0]
+#     except:
+#       dataset.iat[i,29] = np.nan
+#       dataset.iat[i,30] = np.nan
 # return(dataset)
 # 
 # geocoded_dataset = mapbox_geocode(dataset)
 # # write_csv2(geocoded, 'geocoded.csv')
 # ```
-################ Python ################  
+
+########### End Python ############
+
+################ R ################ 
 
 setwd("...")
 geocoded <- read_csv("geocoded.csv")
@@ -169,4 +174,5 @@ inspect(association.rules_cat[1:5])
 
 plot(association.rules_cat[1:10], method = "graph")
 
+########### End R ############
 
